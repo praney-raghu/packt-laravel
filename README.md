@@ -25,7 +25,7 @@ git clone https://github.com/praney-raghu/packt-laravel.git
 -   Run this command, to install dependency for running the application.
 
 ```
-composer install && npm install
+composer install
 
 ```
 
@@ -39,17 +39,13 @@ php artisan migrate --seed
 php artisan key:generate
 ```
 
--   Run this command, to running the application, you can running 2 terminal / CMD.
+-   Run this command, to running the application.
 
 ```
-:: Command To Build Frontend Service (React)
-npm run dev
-
--- and --
-
 :: Command To Running Backend Service (Laravel)
 php artisan serve
 ```
+- This setup will also install Elasticsearch, so please update the .env file with Elasticsearch HOST and POST from .env.example file.
 
 ## ✅ API Documentation
 
@@ -65,6 +61,7 @@ php artisan serve
 | Path          | Method | Description                                 | Data                                                                                                                                                                                                                        |
 | ------------- | ------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | /api/v1/books     | GET    | used for showing list of books from database.  | -                                                                                                                                                                                                                           |
+| /api/v1/books?search=alice | GET | used for searching database using Elasticsearch | Params Request : <br>search: string  |
 | /api/v1/books/:id | GET    | used for showing detail of book from database. | Params Request :<br>id: integer                                                                                                                                                                                             |
 | /api/v1/books     | POST   | used for adding new book into database.     | Header Request :<br>Authorization: string<br><br>Body Request :<br>title: string, genre: string, description: string, isbn: integer, published: date, publisher: string, author: string                                           |
 | /api/v1/books/:id | PUT  | used for updating book from database.         | Header Request : <br>Authorization: string <br><br>Params Request :<br>id: integer<br><br>Body Request : <br>title: string, genre: string, description: string, isbn: integer, published: date, publisher: string, author: string |
